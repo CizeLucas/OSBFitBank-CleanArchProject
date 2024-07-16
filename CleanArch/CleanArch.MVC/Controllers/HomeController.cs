@@ -1,4 +1,4 @@
-using CleanArch.MVC.Models;
+using CleanArch.Infra.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
