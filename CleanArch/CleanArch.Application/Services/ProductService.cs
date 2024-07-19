@@ -38,12 +38,14 @@ namespace CleanArch.Application.Services
 
         public void Update(ProductViewModel product)
         {
-            throw new NotImplementedException();
+            Product mapProduct = _mapper.Map<Product>(product);
+            _productRepository.Update(mapProduct);
         }
 
         public void Remove(ProductViewModel product)
         {
-            throw new NotImplementedException();
+            Product mapProduct = _mapper.Map<Product>(product);
+            _productRepository.Remove(mapProduct);
         }
     }
 }

@@ -1,4 +1,5 @@
 using CleanArch.Infra.IoC;
+using CleanArch.MVC.MappingConfig;
 
 namespace CleanArch.MVC
 {
@@ -11,6 +12,7 @@ namespace CleanArch.MVC
 
             //Add services to the container.
             builder.Services.AddInfrastructure(builder.Configuration);
+            builder.Services.AddAutoMapperConfig();
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
 

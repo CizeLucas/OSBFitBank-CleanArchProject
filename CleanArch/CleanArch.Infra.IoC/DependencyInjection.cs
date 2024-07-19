@@ -1,5 +1,5 @@
 ﻿using CleanArch.Application.Interfaces;
-using CleanArch.Domain.Entities;
+using CleanArch.Application.Services;
 using CleanArch.Domain.Interfaces;
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.Data.Repositories;
@@ -25,7 +25,6 @@ namespace CleanArch.Infra.IoC
 
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
-
 
             return services;
         }
