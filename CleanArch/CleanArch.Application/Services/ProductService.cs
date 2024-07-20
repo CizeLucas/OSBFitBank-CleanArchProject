@@ -36,16 +36,15 @@ namespace CleanArch.Application.Services
             _productRepository.Add(mapProduct);
         }
 
-        public void Update(ProductViewModel product)
+        public async Task Update(ProductViewModel product)
         {
             Product mapProduct = _mapper.Map<Product>(product);
-            _productRepository.Update(mapProduct);
+            await _productRepository.Update(mapProduct);
         }
 
-        public void Remove(ProductViewModel product)
+        public void Remove(int Id)
         {
-            Product mapProduct = _mapper.Map<Product>(product);
-            _productRepository.Remove(mapProduct);
+            _productRepository.Remove(Id);
         }
     }
 }

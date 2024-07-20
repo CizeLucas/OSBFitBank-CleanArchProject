@@ -15,8 +15,8 @@ namespace CleanArch.Application.Interfaces
 
         void Add(ProductViewModel product);
 
-        void Update(ProductViewModel product);
+        Task Update(ProductViewModel product);
 
-        void Remove(ProductViewModel product);
+        void Remove(int Id);
     }
 }

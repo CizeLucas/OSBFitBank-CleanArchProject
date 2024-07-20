@@ -1,6 +1,7 @@
 ﻿using CleanArch.Domain.Entities;
 using CleanArch.Domain.Interfaces;
 using CleanArch.Infra.Data.Context;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArch.Infra.Data.Repositories
@@ -30,16 +31,26 @@ namespace CleanArch.Infra.Data.Repositories
             _context.SaveChanges();
         }
 
-        public void Update(Product product)
+        public async Task Update(Product product)
         {
-            _context.Add(product);
-            _context.SaveChanges();
+            Product productToUpdate = await GetById(product.Id);
+
+            productToUpdate.Name = product.Name;
+            productToUpdate.Description = product.Description;
+            productToUpdate.Price = product.Price;
+
+            _context.Products.Update(productToUpdate);
+            await _context.SaveChangesAsync();
         }
 
-        public void Remove(Product product)
+        public void Remove(int productId)
         {
-            _context.Remove(product);
-            _context.SaveChanges();
+            var product = _context.Products.Find(productId);
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+                _context.SaveChanges();
+            }
         }
     }
 }

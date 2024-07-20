@@ -10,9 +10,9 @@ namespace CleanArch.Domain.Interfaces
 
         void Add(Product product);
 
-        void Update(Product product);
+        Task Update(Product product);
 
-        void Remove(Product product);
+        void Remove(int productId);
 
     }
 }
